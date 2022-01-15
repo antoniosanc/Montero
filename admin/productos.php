@@ -19,20 +19,40 @@ $permiso = "productos"; //cambiar el nombre
     <?php  require_once "includes/modal/productosMod.php"; ?> 
     <div class="container-fluid">
 	 
-		<center>
+	<center>
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-dark "> <strong>Productos</strong> </h1>
+        <h1 class="h3 mb-4 tituloscafe "> <strong><i class="fas fa-shopping-basket"></i> Lista de Productos <i class="fas fa-shopping-basket"></i></strong> </h1>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#addmodal">
+         <!--     <a href="newproducto.php" > <button type="button" class="btn btn-outline-dark" >
+            <i class="fas fa-cart-plus fa-lg"></i> Agregar nuevo productos
+              </button> </a>-->
+         <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#addmodal">
           <i class="fas fa-cart-plus fa-lg"></i>
         </button> 
 
-    </center><br>
+    </center>
+    
+    <!-- respuesta -->
+         
+          <?php 
+          if (isset($_GET['resnew']) && $_GET['resnew']=='si' ) {
+              ?>
+              <script type="text/javascript">
+              alertify.alert().set({'startMaximized':false,'title':'<font color="#196F3D">Operacion exitosa</font>', 'message':'<center><b><font size="5" color="#196F3D"> Producto insertado con exito</font></b><br><img src="img/correcto.gif" width="30%" alt=""></center>',
+              'onok': function(){ window.location.href = "productos.php"; }}).show();
+            </script>
+
+              <?php 
+          }
+           ?>
+        <!-- respuesta -->
+        
+    <br>
 	
-    <!-- tabla -->
-    <div class="card shadow mb-4" id="tabla" >
+     <!-- tabla -->
+    <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Productos registrados</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Productos</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -45,61 +65,52 @@ $permiso = "productos"; //cambiar el nombre
                 <?php
                 } else {
                 ?>
-                <table class="table table-bordered" id="datatableid" width="100%" cellspacing="0">
-                    <thead style="background-color: #000; color: #fff">
-                        <tr>
-                            
-                            <th scope="col">Clave</th>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead style="background-color: #000; color:#fff;" >
+                        <th scope="col">Clave</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Categoria</th>
-                            <th scope="col">descripcion</th>
                             <th scope="col">precio</th>
                             <th scope="col">Stock</th>
-                            <th scope="col">imagen</th>
-                            <th scope="col">estado</th>
                             <th>Acciones</th>
-                        </tr>
                     </thead>
-                    <?php
-                    if($consultap){
-                        //$contador=0;
-                        foreach($consultap as $row) {
-                            //$contador++;
-                    ?>
                     <tbody>
-                        <tr>  
-                        <!-- <td> <?php echo $contador; ?> </td>-->
-                        <td> <?php echo $row['id']; ?> </td>
-                        <td> <?php echo $row['nombre']; ?> </td>
-                        <td> <?php echo $row['categoria']; ?> </td>
-                        <td> <?php echo strip_tags(substr($row['descripcion'],0,40)); ?> </td>
-                        <td> <?php echo $row['precio']; ?> </td>
-                        <td> <?php echo $row['Stock']; ?> </td>
-                        <td> <img src="../productos/<?php echo  $row['imagen'];?>" width="70px"> </td>
-                        <td> <?php echo $row['estado']; ?> </td>
-
+                        <?php
+                         
+                        while($rowedit = mysqli_fetch_array($consultap)){
+                        $idPro=$rowedit["id"];
+                        $nombre = $rowedit["nombre"];
+                        $categoria = $rowedit["categoria"];
+                        $precio = $rowedit["precio"];
+                        $Stock = $rowedit["Stock"];
+                        ?>    
+                        <tr >
+                        <td><?php echo $idPro; ?></td>
+                        <td><?php echo $nombre; ?></td>
+                        <td><?php echo $categoria; ?></td>
+                        <td><?php echo $precio; ?></td>
+                        <td><?php echo $Stock; ?></td>
                         <td align="center">
-                            <button type="button" class="btn btn-info btn-circle editbtn"><i class="fas fa-edit"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle deletebtn"> <i class='fas fa-trash-alt'></i></button>
+                            <!--  
+                            <button type="button" class="btn btn-info btn-circle editbtn"><i class="fas fa-edit"></i></button> 
+                            <button type="button" class="btn btn-danger btn-circle deletebtn"> <i class='fas fa-trash-alt'></i></button>-->
+                            <a href="viewproducto.php?idPro=<?php echo $idPro;;?>" class="btn btn-info btn-circle"> <i class="fas fa-eye fa-lg" title="Datos"></i> </a>
+                             
                         </td>
                         </tr>
+                        <?php } ?>
                     </tbody>
-
-                    <?php           
-                        }
-                    }else{
-                        echo "No Record Found";
-                    }
-                    ?>
                 </table>
                 <?php }?> <!-- fin del else -->
             </div>
         </div>
     </div>
     <!-- Fin de la tabla  -->
+    
 
     </div>
     <!-- /.container-fluid -->
+
 
 <?php include_once "includes/footer.php"; ?>
 <script type="text/javascript" src="js/productos.js"></script>

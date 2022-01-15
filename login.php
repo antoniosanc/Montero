@@ -70,7 +70,7 @@
 
 </style>
 
-<body class="img js-fullheight" style="background-image:url(img/fondo2.jpeg);  ">
+<body class="img js-fullheight fondo"    ">
 
 	<!-- Start header -->
     <header class="top-navbar">
@@ -88,7 +88,7 @@
                         <li class="nav-item"><a class="nav-link" href="productos.php">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="galeria.php">Galeria</a></li>
                         <li class="nav-item"><a class="nav-link" href="contacto.php">Contactanos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php">Iniciar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.php">Iniciar Sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -103,7 +103,7 @@
 					<div class="login-wrap p-0">
 						<!--  
 						<center><img src="img/login.png" style="width: 30%;"></center>-->
-						<h1 class="mb-4 text-center">Bienvenid@</h1>
+						<h1 class="mb-4 text-center"> <font color="#fff "> Bienvenid@</font></h1>
 						<form onsubmit="return login();" method="post" class="signin-form" >
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Correo electronico" name="correo" id="correo"   title="Ingresa tu correo">
@@ -117,7 +117,7 @@
 								<div class="text-center d-inline-block">
 							        
 							        <div class="vc-toggle-container" >
-							        	Administrador
+							        	<font color="#fff " style="background: radial-gradient(#795548, #a1887f38); ">  Administrador</font>
 							          <label class="vc-switch">
 							            <input type="checkbox" class="vc-switch-input" name="tipo" id="tipo" data-on="Yes" />
 							            <span class="vc-switch-label" data-on="Yes" data-off="No"></span>

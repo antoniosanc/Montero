@@ -12,10 +12,10 @@
 		$id=$_GET['idus'];
 		$sql1 ="SELECT * FROM cliente WHERE id = '$id'";
 
-		$sql2 ="SELECT nom_us FROM cliente WHERE id = '$id'";
+		$sql2 ="SELECT usuario FROM cliente WHERE id = '$id'";
 			$sqlnom_us = mysqli_query($conexion,$sql2);
 			$nom_us = $sqlnom_us->fetch_assoc();
-			$nomUs=$nom_us['nom_us'];
+			$nomUs=$nom_us['usuario'];
 ?>
 <!-- Contenido de la página de inicio -->
 <div class="container-fluid">
@@ -54,7 +54,7 @@
                         $contador=0;
                         while($rowedit = mysqli_fetch_array($consultap)){
                         $idus=$rowedit["id"];
-                        $nomus = $rowedit["nom_us"];
+                        $nomus = $rowedit["usuario"];
                         $correous = $rowedit["correo"];
                         $claveus = $rowedit["clave"];
                         $tel = $rowedit["telefono"];
@@ -80,7 +80,7 @@
         <br>
         <!-- botones -->
         <center>
-        <div class="container" style="border: 1px solid;">
+        <div class="container">
         	<?php 
         		if ($es=='activo') {
         			?>

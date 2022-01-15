@@ -1,42 +1,4 @@
-//tabla idioma y configuraciones
- $(document).ready(function () {
-
-            $('#datatableid').DataTable({
-                "pagingType": "full_numbers",
-                "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "Todo"]
-                ],
-                language: {
-                    search: "_Entrada_",
-                    searchPlaceholder: "Busque sus datos",   
-                    "decimal":        "",
-                    "emptyTable":     "No hay datos disponibles en la tabla",
-                    "info":           "Mostrando _START_ a _END_ de _TOTAL_ entradas",
-                    "infoEmpty":      "Mostrando del 0 al 0 de 0 entradas",
-                    "infoFiltered":   "(filtrado de _MAX_ entradas totales)",
-                    "infoPostFix":    "",
-                    "thousands":      ",",
-                    "lengthMenu":     "Mostrar _MENU_ entradas",
-                    "loadingRecords": "Cargando...",
-                    "processing":     "Procesando...",
-                    "search":         "Buscar:",
-                    "zeroRecords":    "No se encontraron registros coincidentes",
-                    "paginate": {
-                        "first":      "primero",
-                        "last":       "Último",
-                        "next":       "siguiente",
-                        "previous":   "anterior"
-                    },
-                    "aria": {
-                        "sortAscending":  ": activar para ordenar columna ascendente",
-                        "sortDescending": ": activar para ordenar la columna descendente"
-                    }             
-                }
-            });
-
- });
-//tabla idioma y configuraciones
+ 
 
 function NewColaborador() {
         var nom = document.getElementById('nom').value;

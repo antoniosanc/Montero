@@ -23,14 +23,14 @@
 
     <center>
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-dark "> <strong>Clientes Registrados</strong> </h1>
+        <h1 class="h3 mb-4 tituloscafe "> <strong>Clientes Registrados</strong> </h1>
         <!-- Button trigger modal -->
     </center>
 
      <!-- tabla -->
-    <div class="card shadow mb-4" id="tabla" >
+    <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Clientes</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Productos</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -43,29 +43,24 @@
                 <?php
                 } else {
                 ?>
-                <table class="table table-bordered" id="datatableid" width="100%" cellspacing="0">
-                    <thead style="background-color: #000; color: #fff">
-                        <tr>
-                            <th scope="col">Clave</th>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead style="background-color: #000; color:#fff;" >
+                        <th scope="col">Clave</th>
                             <th scope="col">Usuario</th>
                             <th scope="col">Correo</th>
-                            <th scope="col">Contraseña</th>
-                            <th scope="col">Telefono</th>
                             <th scope="col">Estado</th>
                             <th>Acciones</th>
-                        </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $contador=0;
+                         
                         while($rowedit = mysqli_fetch_array($consultap)){
-                        $idus=$rowedit["id"];
-                        $nomus = $rowedit["nom_us"];
+                         $idus=$rowedit["id"];
+                        $nomus = $rowedit["usuario"];
                         $correous = $rowedit["correo"];
-                        $claveus = $rowedit["clave"];
-                        $tel = $rowedit["telefono"];
+            
                         $estado = $rowedit["estado"];
-                        $contador++;
+                       
                          if ($estado=="activo") {
                             $es="<font color='green'><b>Activo</b></font>";
                           }else if($estado=="inactivo"){
@@ -78,20 +73,20 @@
                         <td><?php echo $idus; ?></td>
                         <td><?php echo $nomus; ?></td>
                         <td><?php echo $correous; ?></td>
-                        <td><?php echo $claveus; ?></td>
-                        <td><?php echo $tel; ?></td>
                         <td><?php echo $es; ?></td>
                         <td align="center">
                         <!-- onsubmit="return agregarProducto();" 
                         class="btn btn-danger"><i class='fas fa-trash-alt'></i>
                         -->
-                        <a href="usRespuesta.php?idus=<?php echo $idus?>&correo=<?php echo $correous?>&clave=<?php echo $claveus?>" class="btn btn-info btn-circle"><i class="fas fa-envelope-open-text fa-lg" title="Datos"></i> </a>
+                        <a href="datocliente.php?idus=<?php echo $idus?>" class="btn btn-info btn-circle"><i class="fas fa-envelope-open-text fa-lg" title="Datos"></i> </a>
  
                         <a class="btn btn-danger btn-circle" onclick="return alertify.confirm('¿Estás seguro de eliminar a <?php echo $nomus; ?>?', 
                             function(){
                               alertify.success('confirmed');
                               window.location.href = 'control/cliente.php?id=<?php echo $idus; ?>';
-                            }).autoOk(5);" ><i class='fas fa-trash-alt'></i></a>
+                            }).autoCancel(5).set('oncancel', function(){alertify.message('cliente salvado');}); " ><i class='fas fa-trash-alt'></i></a>
+                                    <!--  
+                            lertify.confirm('Will be declined in 5 seconds').autoCancel(5).set('oncancel', function(){alertify.error('declined');}); -->
 
 
 
@@ -105,6 +100,7 @@
         </div>
     </div>
     <!-- Fin de la tabla  -->
+        
 
 </div>
 <!-- /.container-fluid -->

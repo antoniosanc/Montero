@@ -125,7 +125,8 @@
 			    ?>
 				<div class="col-lg-4 col-md-6 special-grid <?php echo $categoria;?> ">
 					<div class="gallery-single fix">
-						<a href="detallesproducto.php?id=<?php echo $row['id'];?>"><img src="productos/<?php echo $row['imagen'];?>" class="img-fluid" alt="Image">
+						<a href="detallesproducto.php?id=<?php echo $row['id'];?>">
+							<img src="productos/<?php echo $row['img1'];?>" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4><?php echo $row['nombre']; ?></h4>
 							<p><?php echo strip_tags(substr($row['descripcion'],0,40)); ?></p>

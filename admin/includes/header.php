@@ -36,6 +36,7 @@ if (empty($_SESSION['active'])) {
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    
 
     <link rel="stylesheet" type="text/css" href="librerias/alertifyjs/css/alertify.css">
     <link rel="stylesheet" type="text/css" href="librerias/alertifyjs/css/themes/default.css">

@@ -11025,7 +11025,7 @@ h5,
 	height: 58px;
 	color: #fff!important;
 	border: 1px solid transparent;
-	background: rgba(0, 0, 0, .22);
+	background: rgba(62, 39, 35, .7);
 	border-radius: 40px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -11065,11 +11065,12 @@ h5,
 	outline: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	border-color: rgba(255, 255, 255, .4)
+	border-color: rgba(255, 255, 255, .5)
 }
 
 .form-control:focus {
-	border-color: rgba(255, 255, 255, .4)
+	border-color: rgb(62, 39, 35);
+	background-color: rgb(62, 39, 35);
 }
 
 textarea.form-control {
@@ -11192,3 +11193,12 @@ textarea.form-control {
 .swal-overlay {
   background-color: rgba(0, 0, 0, 0.8);
 } 
+
+.fondo{
+ 
+  background-image:url(../LOGOCH.png);
+  background-size:  30%;
+  background-repeat: repeat;
+  background-position: 100px;
+}
+  
