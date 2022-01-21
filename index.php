@@ -1,4 +1,4 @@
-<?php include('include/header.php') ?>
+<?php include('include/header.php'); ?>
 	
 	
 	<!-- Start slides -->
@@ -123,10 +123,10 @@
 			         $categoria=str_replace(" ",'',$categoria);
 							
 			    ?>
-				<div class="col-lg-4 col-md-6 special-grid <?php echo $categoria;?> ">
+				<div class="col-lg-4 col-md-6 special-grid <?php echo $categoria;?>">
 					<div class="gallery-single fix">
-						<a href="detallesproducto.php?id=<?php echo $row['id'];?>">
-							<img src="productos/<?php echo $row['img1'];?>" class="img-fluid" alt="Image">
+						<a href="detallesproducto.php?id=<?php echo $row['id'];?>&token=<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN)?>">
+							<img src="productimages/<?php echo $row['id'];?>/<?php echo $row['img1'];?>" class="img-fluid" alt="Image">
 						<div class="why-text">
 							<h4><?php echo $row['nombre']; ?></h4>
 							<p><?php echo strip_tags(substr($row['descripcion'],0,40)); ?></p>
@@ -172,7 +172,7 @@
 	<!-- End Gallery -->
 	
 
-	
+</body>	
 <?php include 'include/footer.php' ?>
 	
 	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
@@ -189,5 +189,5 @@
 	<script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
-</body>
+
 </html>

@@ -82,3 +82,5 @@
         
     </footer>
     <!-- End Footer -->
+    <script src="https://kit.fontawesome.com/42e3e833b9.js" crossorigin="anonymous"></script>
+

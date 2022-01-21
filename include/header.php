@@ -1,4 +1,4 @@
-<?php include('conexion.php'); ?>
+<?php require('conexion.php'); require "control/config.php";?>
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+    
 
 </head>
 
@@ -47,6 +48,7 @@
                         <li class="nav-item"><a class="nav-link" href="productos.php">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="galeria.php">Galeria</a></li>
                         <li class="nav-item"><a class="nav-link" href="contacto.php">Contactanos</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="checkout.php"><i class="fas fa-shopping-cart"></i> <span id="num_cart" class="badge bg-sussesful"><?php echo $num_cart; ?></span></a></li>
                         <li class="nav-item"><a class="nav-link" href="login.php">Iniciar Sesión</a></li>
                     </ul>
                 </div>
